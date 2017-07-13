@@ -9,9 +9,8 @@ object kadai01 {
   }
 
   def show(value: Option[String]): Unit = {
-    value match {
-      case Some(v) => println(v)
-      case None =>
+    value.foreach { v =>
+      println(v)
     }
   }
 }
