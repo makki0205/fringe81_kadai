@@ -11,9 +11,10 @@ object kada02 {
 
   // kadai02
   def getFirst(value: Option[String]): String = {
-    value match {
-      case Some(v) => v
-      case None => ""
+    val valueStr = value.getOrElse("")
+    if (valueStr.isEmpty()) {
+      return ""
     }
+    valueStr.substring(0, 1)
   }
 }
