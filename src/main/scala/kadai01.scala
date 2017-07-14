@@ -9,9 +9,7 @@ object kadai01 {
   }
 
   def show(value: Option[String]): Unit = {
-    value.foreach { v =>
-      println(v)
-    }
+    value.foreach(println)
   }
 }
 
