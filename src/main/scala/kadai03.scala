@@ -7,13 +7,8 @@ object NumEnglishDictionary {
   private val dictionary = Map(1 -> "one", 2 -> "two")
 
   def translate(num: Option[Int]): Option[String] = {
-    val numInt = num match {
-      case Some(num) => num
-      case None => return None
-    }
-    this.dictionary.get(numInt) match {
-      case Some(v) => return Some(v)
-      case None => return None
+    num.map {
+      v => return this.dictionary.get(v)
     }
   }
 }
