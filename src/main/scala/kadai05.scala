@@ -1,7 +1,6 @@
 /**
   * Created by taiki on 2017/07/18.
   */
-import scala.collection.mutable.Map
 object kadai05 {
   val passScore = 80
   val english = "english"
@@ -20,22 +19,6 @@ object kadai05 {
   }
 
   def passStudents(scores: Map[String, Map[String, Int]]): Map[String, Int] = {
-    // 空のmap作成
-    val passList = Map[String, Int]()
-
-    scores.filter{
-      case (_, score)=> score.contains(english) && score.contains(math)
-    }.foreach{
-      case (name, score)=>{
-        // 平均値を取得
-        val ave = (score(english) + score(math)) / 2
-        // 合格点であれば以上なら配列に追加
-        if (ave >= passScore){
-          passList(name) = ave
-        }
-      }
-    }
-
-    passList
+    for (score <- scores; if score._2.contains(english) && score._2.contains(english); ave = (score._2(english) + score._2(math)) / 2) yield score._1 -> ave
   }
 }
