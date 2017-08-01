@@ -19,6 +19,11 @@ object kadai05 {
   }
 
   def passStudents(scores: Map[String, Map[String, Int]]): Map[String, Int] = {
-    for (score <- scores; if score._2.contains(english) && score._2.contains(english); ave = (score._2(english) + score._2(math)) / 2) yield score._1 -> ave
+    for (score <- scores;
+         if score._2.contains(english) && score._2.contains(math);
+         ave = (score._2(english) + score._2(math)) / 2
+         if ave > passScore
+    ) yield score._1 -> ave
+
   }
 }
